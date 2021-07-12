@@ -37,7 +37,7 @@ void quickSort(int arr[], int l, int h)
 }
 int main()
 {
-    int arr[] = {64, 25, 12, 22, 11, 33};
+    int arr[]={32,1,4,23,66,76,34,67,89,9};
     int n = sizeof(arr) / sizeof(arr[0]);
     quickSort(arr, 0, n - 1);
     cout << "Sorted array: \n";
