@@ -30,15 +30,15 @@ void merge(int arr[], int l, int mid, int r)
         }
         k++;
     }
-    while (i<ln)
+    while (i < ln)
     {
-        arr[k]=L[i];
+        arr[k] = L[i];
         i++;
         k++;
     }
-    while (j<rn)
+    while (j < rn)
     {
-        arr[k]=R[j];
+        arr[k] = R[j];
         j++;
         k++;
     }
@@ -56,7 +56,7 @@ int main()
 {
     int arr[] = {64, 25, 12, 22, 11, 33};
     int n = sizeof(arr) / sizeof(arr[0]);
-    mergeSort(arr, 0, n-1 );
+    mergeSort(arr, 0, n - 1);
     cout << "Sorted array: \n";
     printArray(arr, n);
     return 0;
