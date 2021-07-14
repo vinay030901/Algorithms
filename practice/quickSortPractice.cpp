@@ -1,65 +1,83 @@
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
-void printArray(int a[], int n)
-{
-    for (int i = 0; i < n; i++)
-        cout << a[i] << " ";
-}
-void merge(int arr[], int l, int mid, int h)
-{
-    int n1 = mid - l + 1, n2 = h - mid, k, j;
-    int i;
-    int L[n1];
-    int R[n2];
-    for (i = 0; i < n1; i++)
-        L[i] = arr[l + i];
-    for (j = 0; j < n2; j++)
-        R[j] = arr[mid + j + 1];
-    i = 0;
-    j = 0;
-    k=l;
-    while (i < n1 && j < n2)
+class Solution{
+public:	
+
+    void isort(int arr[],int s,int e)
     {
-        if (L[i] <= R[j])
+        int i,j;
+        for(i=s;i<=e;i++)
         {
-            arr[k] = L[i];
-            i++;
+            int key=i;
+            j=i-1;
+            while(arr[j]>key && j>=0)
+            {
+                arr[j+1]=arr[j];
+                j--;
+            }
+            arr[j+1]=key;
         }
-        else
-        {
-            arr[k] = R[j];
-            j++;
-        }
-        k++;
     }
-    while (i < n1)
+    int issort(int arr[],int n)
     {
-        arr[k] = L[i];
-        i++;
-        k++;
-    }
-    while (j < n2)
+        int f=0;
+    for(int i=0;i<n-1;i++)
     {
-        arr[k] = R[j];
-        j++;
-        k++;
+        if(arr[i]>arr[i+1])
+            f=1;
     }
-}
-void mergeSort(int arr[], int l, int h)
-{
-    if (l >= h)
-        return;
-    int mid = l + (h - l) / 2;
-    mergeSort(arr, l, mid );
-    mergeSort(arr, mid + 1, h);
-    merge(arr, l, mid, h);
-}
+    if(f==1)
+        return 0;
+    else
+        return 1;
+    }
+	vector<int> printUnsorted(int arr[], int n) {
+	    int s,e,i;
+	    for(s=0;s<n;s++)
+	        {
+	            if(arr[s]>arr[s+1])
+	                break;
+	        }
+	    for(e=n-1;e>=s;e--)
+	        {
+	            if(arr[e]<arr[e-1])
+	                break;
+	        }
+	    isort(arr,s,e);
+	    int f=issort(arr,n);
+	    if(f==0)
+	    {
+	        int max=arr[s],min=arr[e];
+	        int t=s;
+	        for(i=0;i<t;i++)
+	        {
+	            if(arr[i]>max)
+	                s=i;
+	        }
+	        for(int j=e+1;j<n;j++)
+	        {
+	            if(arr[j]<min)
+	                e=j;
+	        }
+	        vector<int>v1;
+	        v1.push_back(s);
+	        v1.push_back(e);
+	        return v1;
+	    }
+	    else
+	    {
+	        vector<int>v1;
+	        v1.push_back(s);
+	        v1.push_back(e);
+	        return v1;
+	    }
+	}
+};
 int main()
 {
-    int arr[] = {32, 1, 4, 23, 66, 76, 34, 67, 89, 9};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    mergeSort(arr, 0, n - 1);
-    cout << "Sorted array: \n";
-    printArray(arr, n);
-    return 0;
+    int arr[]={10,12,20,30,25,40,32,31,35,50,60};
+    Solution ob;
+    int n=sizeof(arr)/sizeof(arr[0]);
+    auto ans=ob.printUnsorted(arr,n);
+    cout<<ans[0]<<"    "<<ans[1];
 }

@@ -36,7 +36,6 @@ void heapSort(int arr[], int n)
     {
         
         swap(arr[0], arr[i]);
-        printArray(arr,n);
         heapify(arr, i, 0);
     }
 }
