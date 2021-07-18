@@ -1,4 +1,4 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 void heapify(int arr[],int n,int i)
 {
@@ -30,6 +30,7 @@ int main()
 {
     int arr[]={7,10,4,3,20,15};
     int n=sizeof(arr)/sizeof(arr[0]);
-    build_heap(arr,n);
-    printArray(arr,n);
+    //build_heap(arr,n);
+    //printArray(arr,n);
+   // priority_queue<int>
 }
