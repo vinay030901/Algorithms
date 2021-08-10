@@ -1,4 +1,4 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 int binarySearch(int arr[],int l,int r,int x)
 {
@@ -34,7 +34,7 @@ int main()
     int x = 55;
     int n = sizeof(arr) / sizeof(arr[0]);
      
-    // Find the index of 'x' using Jump Search
+    // Find the index of 'x' using exponential Search
     int index = exponentialSearch(arr, x, n);
  
     // Print the index where 'x' is located
