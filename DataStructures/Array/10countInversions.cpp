@@ -12,7 +12,7 @@ int merge(int arr[],int temp[],int left,int mid,int right)
 {
     int i=left,j=mid,k=left;
     int inv=0;
-    while(i<=mid-1 && j<right)
+    while(i<=mid && j<=right)
     {
         if(arr[i]<=arr[j])
         {
@@ -24,7 +24,7 @@ int merge(int arr[],int temp[],int left,int mid,int right)
             inv+=(mid-i+1);
         }
     }
-    while(i<mid)
+    while(i<=mid)
     {
         temp[k++]=arr[i++];
     }
@@ -32,6 +32,8 @@ int merge(int arr[],int temp[],int left,int mid,int right)
     {
         temp[k++]=arr[j++];
     }
+    for(int l=left; l<=right; l++)
+        arr[l]=temp[l-left];
     return inv;
 }
 int mergeSort(int arr[],int temp[], int left, int right)
@@ -48,7 +50,8 @@ int mergeSort(int arr[],int temp[], int left, int right)
 }
 int main()
 {
-    int arr[]={5,3,2,4,1};
+    int arr1[]={5,3,2,4,1};
+    int arr[]={1,2,0};
     int n=sizeof(arr)/sizeof(arr[0]);
     int temp[n];
     int inv=mergeSort(arr,temp,0,n-1);

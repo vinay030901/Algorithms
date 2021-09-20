@@ -15,7 +15,7 @@ int main()
     difference between sum of squares of numbers and sum of array, using both equations we will find those numbers*/
     int arr[]={4,3,6,2,1,1};
     int n=sizeof(arr)/sizeof(arr[0]);
-    /*int asumn=0,asums=0;
+    int asumn=0,asums=0;
     for(int i=0;i<n;i++)
     {
         asumn+=arr[i];//sum of array
@@ -27,10 +27,10 @@ int main()
     int diff2=(sums-asums)/diff;//sum of missing and repeating numbers
     int miss=(diff+diff2)/2;//value of missing
     int repeat=diff2-miss;//value of repeating number
-    cout<<"the repeating number is: "<<repeat<<" and the missing number is: "<<miss;*/
+    cout<<"the repeating number is: "<<repeat<<" and the missing number is: "<<miss;
 
     /*we can also solve this question using xor approach, xor all the numbers in the range with numbers in array
-    all the numbers will cancel out and we'll only get the xor of the missing and repeating and missing number*/
+    all the numbers will cancel out and we'll only get the xor of the missing and repeating and missing number
     int xi=0;
     for(int i=0;i<n;i++)
         xi=xi^arr[i];
@@ -62,5 +62,5 @@ int main()
     else if(y==arr[i])
     {miss=x;
     repeat=y;}}
-    cout<<"missing number is: "<<miss<<" and repeating number is: "<<repeat;
+    cout<<"missing number is: "<<miss<<" and repeating number is: "<<repeat;*/
 }
