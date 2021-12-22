@@ -35,5 +35,5 @@ int main()
          }
       }
    }
-   cout<<cnt<<" "<<mx;
+   cout<<mx<<" "<<ct;
 }
