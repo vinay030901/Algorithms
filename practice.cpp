@@ -1,50 +1,70 @@
+#include<algorithm>
 #include<iostream>
-#include <bitset>
-typedef long long ll;
 using namespace std;
-string to_binary(ll n)
+
+struct Job
 {
-    return bitset<8>(n).to_string();
+   char id;     
+   int dead;    
+   int profit;  
+};
+  
+bool comparison(Job &a, Job b)
+{
+    return (a.profit > b.profit);
 }
-int main()
+  
+void printJobScheduling(Job arr[], int n)
 {
-    /*ll t;
-    cin>>t;
-    while(t--)
+    sort(arr, arr+n, comparison);
+	int maxi=0; 
+	for(int i=0;i<n;i++)
+		maxi=max(maxi,arr[i].dead);
+	int slot[maxi+1];
+
+    for (int i=0; i<=maxi; i++)
+        slot[i] = -1;
+
+	int countJobs=0,jobProfit=0;
+    for (int i=0; i<n; i++)
     {
-        ll n;
-        vector<int>v;
-        cin>>n;
-        for(ll i=1;i<n;i++)
-        {
-            string s=to_binary(i);
-            string srev=s;
-            reverse(srev.begin(),srev.end());
-            if(s==srev)
-                v.push_back(i);
-        }
-        cout<<v.size()<<endl;
-        for(int i=0;i<v.size();i++)
-            cout<<v[i]<<" ";
-    }*/
-    int n=5,i=0;
-    string str;
-    str=to_binary(n);
-    while(str[i]==0)
-    {
-        
+       for (int j=arr[i].dead; j>0; j--)
+       {
+          if (slot[j]==-1)
+          {
+            slot[j] = i;  
+			countJobs++;
+			jobProfit+=arr[i].profit;
+            break;
+          }
+       }
     }
+	cout<<"Count of jobs: "<<countJobs<<"\n";
+	cout<<"Total Progit: "<<jobProfit<<"\n";
+	cout<<"jobs Execution: \n";
+    for(int i=0; i<=maxi; i++)
+       if (slot[i]!=-1)
+        cout << arr[slot[i]].id<<" ";
 }
 
-Scanner sc=new Scanner(System.in);
-int t=sc.nextInt();
-int c=n;
-Set<Integer> set=new HashSet<Integer()>;
-while(c-->0){
-    set.add(sc.nextInt());
-}
-if(set.size()<=12 && n>=12){
-    System.out.println("yes");}
-else{
-    System.out.println("no");
+int main()
+{
+    int n;
+    cin>>n;
+    
+    Job arr[n];
+    
+    for(int i=0; i<n; i++)
+    {
+		char x;
+        int y,z;
+        cin>>x>>y>>z;
+        arr[i].id=x;
+        arr[i].dead=y;
+        arr[i].profit=z;
+    }
+    
+    printJobScheduling(arr, n);
+    
+    return 0;
 }
