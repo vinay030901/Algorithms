@@ -7,7 +7,8 @@
         "string": "cpp",
         "vector": "cpp",
         "xstring": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "algorithm": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }
