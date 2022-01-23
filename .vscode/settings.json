@@ -8,7 +8,11 @@
         "vector": "cpp",
         "xstring": "cpp",
         "queue": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "utility": "cpp",
+        "stack": "cpp",
+        "xutility": "cpp",
+        "unordered_map": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }
