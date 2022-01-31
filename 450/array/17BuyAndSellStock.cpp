@@ -5,7 +5,7 @@ You want to maximize your profit by choosing a single day to buy one stock and c
 
 Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
 
- 
+
 
 Example 1:
 
@@ -22,14 +22,14 @@ Explanation: In this case, no transactions are done and the max profit = 0.*/
 using namespace std;
 int main()
 {
-    int arr[]={7,1,5,3,6,4};
-    int n=sizeof(arr)/sizeof(arr[0]);
-    int min=arr[0],maxProfit=0;
-    for(int i=1;i<n;i++)
+    int arr[] = {7, 1, 5, 3, 6, 4};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int min = arr[0], maxProfit = 0;
+    for (int i = 1; i < n; i++)
     {
-        if(arr[i]<min)
-        min=arr[i];
-        maxProfit=max(maxProfit,arr[i]-min);
+        if (arr[i] < min)
+            min = arr[i];
+        maxProfit = max(maxProfit, arr[i] - min);
     }
-    cout<<maxProfit;
+    cout << maxProfit;
 }
