@@ -1,46 +1,33 @@
 #include<bits/stdc++.h>
 using namespace std;
-bool canThreePartsEqualSum(vector<int>& arr) {
-        int s=accumulate(arr.begin(),arr.end(),0);
-        if(s%3!=0)
-            return false;
-        int n=s/3;
-        int k=0,f=0,sum=0;
-        for(int i=0;i<arr.size();i++)
+int LongestSubstringWithoutRepeatingCharacters(string str,int n){
+    int mx=INT_MIN;
+    string res="";
+    for(int i=0;i<n;i++)
+    {
+        if(res.find(str[i])==string::npos)
+        {res+=str[i];
+        cout<<res<<endl;}
+        else
         {
-            sum+=arr[i];
-            cout<<sum<<endl;
-            if(sum==n)
-            {
-                cout<<"sum in 1: "<<sum<<endl;
-                k=i;
-                sum=0;
-                f=1;
-                break;
-            }
+            int cnt=res.length();
+            cout<<str[res.find(str[i])]<<endl;
+            cout<<cnt<<endl;
+            cout<<res<<endl;
+            if(cnt>mx)
+            mx=cnt;
+            res.erase(res.begin(),res.begin()+res.find(str[i])+1);
+            res+=str[i];
         }
-        for(int i=k+1;i<arr.size();i++)
-        {
-            sum+=arr[i];
-            if(sum==n)
-            {
-                cout<<"sum in 2: "<<sum<<endl;
-                k=i;
-                sum=0;
-                f=2;
-                break;
-            }
-        }
-        for(int i=k+1;i<arr.size();i++)
-        {
-            sum+=arr[i];
-        }
-        if(sum==n && f==2)
-            return true;
-        return false;
     }
+    int cnt=res.length();
+    cout<<res<<endl;
+    mx=max(mx,cnt);
+    return mx;
+}
 int main()
 {
-    vector<int>arr={1,-1,1,-1};
-    cout<<canThreePartsEqualSum(arr);
+    string str = "abbcacbddbcd";
+    int n=str.length();
+    cout<<LongestSubstringWithoutRepeatingCharacters(str,n);
 }
