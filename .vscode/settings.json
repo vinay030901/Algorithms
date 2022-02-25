@@ -25,7 +25,8 @@
         "valarray": "cpp",
         "xhash": "cpp",
         "xtree": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "bitset": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }

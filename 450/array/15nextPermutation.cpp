@@ -41,8 +41,8 @@ void nextPermutation(int n, vector<int> &arr)
 }
 int main()
 {
-    vector<int> arr = {2, 3, 1, 4, 5};
-    int n = 5;
+    vector<int> arr = {2, 5, 8, 7, 6, 4};
+    int n = 6;
     nextPermutation(n, arr);
     for (int i = 0; i < n; i++)
         cout << arr[i] << " ";

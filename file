@@ -1,0 +1,105 @@
+SUMMARY STATISTICS
+
+COMPUTING THE SCORES 
+
+What should that mean? - 
+do you want the highest score to be the most popular? 
+or the one where people go to most.
+
+-Popularity-> popularity doesn't mean the best, macdonald will be best then as more people are eating there 
+-average rating- that is a problem because it might be the case, that less people are going there 
+-Probability of your liking.
+
+How to compute?
+-Frequency
+-average
+-more complicated
+
+Formula of zagat-
+rating-{0,1,2,3}
+3- special, 2- very good 
+    score=round(mean(ratings)*10)
+
+Breaking it down-
+
+popular is very important
+averages can be misleading-
+    can adjust by summing.
+    can adjust normalize user rating.
+    may want to consider credibiliy of individual raters(history of ratings)
+
+more data is better ... to a poing
+    - average, count, distribution
+
+TAKEAWAYS-    
+
+• Non-personalized popularity statistics or
+averages can be effective in the right application
+
+ Need to understand relationship between average
+and user need; correct average
+• In many cases it can be best to show count,
+average, and distribution together
+• For ranking, one alternative to average is the
+percentage who score above a threshold, show how many liked and how many hated
+– Or below!
+• Personalization would address many limitations!
+
+VIDEO 2
+
+APPROACHES- 
+
+* Average rating/upvote proportion
+    - of poeple who vote- do they like it?
+    - doesnt show popularity
+
+* Net of upvotes/ no of likes
+    - shows popularity
+    - net controversy- how much this thing is hated
+
+* %>= 4 stars('positive')
+    - works well, how much people like item
+    -but sometimes, people who like a thing rate it lower and thing they don't like, they rate it very lower,
+    but it decrease the average rating, and if great than 4 is good, it won't be considered sometimes
+
+*Full distribution of data
+    - could be complicated for the users to process.
+
+important thing to know-
+    GOAL OF DISPLAY- the purpose of prediction or showing preference to show users if they want to buy/read/view the item
+
+
+Amazon tells everything- 
+-how many people rated, 
+-what's the average
+-rating given by users
+
+WE SHOULD NOT JUST RANK BY SCORES
+REASONS-
+    * If we have two little data(one or two 5 star ratings)
+    *Score may be multivariate
+    Doman o business considerations
+    - items is sold
+    -items is unfavored(community or business reasons)
+
+RANKING CONSIDERATIONS
+
+*Confidence- how confident are we that this item is good
+
+*Risk Tolerance
+    - high risk, high reward
+    - conservative recommendation
+
+*Domain/ business consideration
+    -age
+    -type of community or country
+
+
+DAMPED MEANS- 
+
+Problem- low confidence with few ratings
+solution- assume that without edidence, everything is average
+ratings are evidence of non-averageness- its good or bad
+
+formula- k controls strength of evidence required
+

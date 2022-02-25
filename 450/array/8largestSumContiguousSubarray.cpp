@@ -16,7 +16,7 @@ int main()
         mx = max(mx, sum);
     }
     cout << "using all permutations: " << mx << endl;
-    // so we have kadance algo with us which can do this task in O(n) complexity
+    // so we have kadane algo with us which can do this task in O(n) complexity
     int currentSum = 0, max = arr[0];
     for (int i = 1; i < n; i++)
     {

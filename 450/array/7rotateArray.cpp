@@ -44,5 +44,5 @@ int main()
     rotate(arr, arr + k, arr + n);
     cout << "\nUsing STL rotate: ";
     for (int i = 0; i < n; i++)
-        cout << arr2[i] << " ";
+        cout << arr[i] << " ";
 }

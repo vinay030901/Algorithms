@@ -1,4 +1,5 @@
-/*nversion Count for an array indicates – how far (or close) the array is from being sorted. If the array is already sorted, then the inversion count is 0, but if the array is sorted in the reverse order, the inversion count is the maximum.
+/*inversion Count for an array indicates – how far (or close) the array is from being sorted. If the array is already sorted,
+then the inversion count is 0, but if the array is sorted in the reverse order, the inversion count is the maximum.
 Formally speaking, two elements a[i] and a[j] form an inversion if a[i] > a[j] and i < j
 Example:
 
@@ -131,7 +132,7 @@ int main()
   // this process could be simply be done using the O(n^2) complexity
   // just traverse the array and check the number greater than it on the right side
   long long n = 4, count = 0;
-  long long arr[] = {8, 4, 2, 1};
+  long long arr[] = {4, 2, 8, 1};
   for (long long i = 0; i < n - 1; i++)
     for (long long j = i + 1; j < n; j++)
       if (arr[i] > arr[j])
