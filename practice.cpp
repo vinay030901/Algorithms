@@ -1,33 +1,32 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-int LongestSubstringWithoutRepeatingCharacters(string str,int n){
-    int mx=INT_MIN;
-    string res="";
-    for(int i=0;i<n;i++)
+bool fun()
+{
+    long long a, b, c;
+    cin >> a >> b;
+    int arr[b];
+    map<int, int> ma, mb;
+    for (int i = 0; i < a; i++)
     {
-        if(res.find(str[i])==string::npos)
-        {res+=str[i];
-        cout<<res<<endl;}
-        else
-        {
-            int cnt=res.length();
-            cout<<str[res.find(str[i])]<<endl;
-            cout<<cnt<<endl;
-            cout<<res<<endl;
-            if(cnt>mx)
-            mx=cnt;
-            res.erase(res.begin(),res.begin()+res.find(str[i])+1);
-            res+=str[i];
-        }
+        cin >> c;
+        ma[c]++;
     }
-    int cnt=res.length();
-    cout<<res<<endl;
-    mx=max(mx,cnt);
-    return mx;
+    for (int i = 0; i < b; i++)
+    {
+        cin >> c;
+        mb[c]++;
+        arr[i] = c;
+    }
+    for (int i = 0; i < b; i++)
+    {
+        if (ma[arr[i]] < mb[arr[i]])
+            return false;
+    }
+    return true;
 }
 int main()
 {
-    string str = "abbcacbddbcd";
-    int n=str.length();
-    cout<<LongestSubstringWithoutRepeatingCharacters(str,n);
+
+    if(fun()==true)cout<<"Yes\n";
+    else cout<<"No\n";
 }

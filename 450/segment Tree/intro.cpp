@@ -5,25 +5,35 @@ the node (l,r) keep the the result from l to r
 we have (l,mid) and (mid+1,r), that is the data is divided with middle
 
 */
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-int n=5;
-int arr[]={1,5,2,-3,13};
-int build(int i,int lf,int rg,int ans[])
+int arr[]={1,2,-3};
+int n=3;
+int tree[12];
+void build(int ind, int l, int r)
 {
-    if(lf==rg) ans[i]=arr[lf];
-    int mid=(lf+rg)/2;
-
-    build(2*i,lf,mid,ans);
-    build(2*i+1,mid+1,rg,ans);
-    
+    if (l == r)
+    {
+        tree[ind] = arr[l];
+        return ;
+    }
+    int mid = (l+r) / 2;
+    build(2 * ind, l, mid);
+    build(2 * ind + 1, mid + 1, r);
+    tree[ind]=min(tree[2*ind],tree[2*ind+1]);
 }
-
+int calculateHeight(int n)
+{
+    n=log2(n);
+    n=(int)(ceil(n));
+    int k = n;
+    int h= (2 * (2 ^ k)) - 1;
+    return h;
+}
 int main()
 {
-    int ans[4*n];
-    int p=build(0,0,n-1,ans);
-    int l=sizeof(ans)/sizeof(ans[0]);
-    for(int i=0;i<l;i++)
-    cout<<ans[i]<<" ";
+    //int h = calculateHeight(n);
+    build(0,0,2);
+    for (int i = 1; i < 12; i++)
+        cout << tree[i] << " ";
 }

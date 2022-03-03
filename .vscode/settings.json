@@ -26,7 +26,8 @@
         "xhash": "cpp",
         "xtree": "cpp",
         "map": "cpp",
-        "bitset": "cpp"
+        "bitset": "cpp",
+        "cmath": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }
