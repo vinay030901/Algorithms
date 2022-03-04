@@ -27,7 +27,8 @@
         "xtree": "cpp",
         "map": "cpp",
         "bitset": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "xiosbase": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }
