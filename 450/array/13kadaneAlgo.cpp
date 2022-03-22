@@ -11,7 +11,7 @@ int main()
     for (int i = 0; i < n; i++)
     {
         int sum = 0;
-        for (j = i + 1; j < n; j++)
+        for (j = i; j < n; j++)
             sum += arr[j];
         mx = max(mx, sum);
     }

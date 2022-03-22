@@ -18,13 +18,13 @@ bool binary_search(int arr[], int n, int x)
 int main()
 {
     int arr1[] = {1, 4, 7, 8, 34, 45, 67};
-    int arr2[]{1, 2, 4, 13, 34, 45, 56, 60};
+    int arr2[]={1, 2, 4, 13, 34, 45, 56, 60};
 
     // we have the stl function for both union and intersection, so in this case the question is easy
     // but we need to device the algorithm for it
 
     // for union
-    // one easy method could be to put all the elements in a stack and that will remove the repeating elements
+    // one easy method could be to put all the elements in a set and that will remove the repeating elements
 
     // we can use a merge sort like algorithm for this case
     int m = sizeof(arr1) / sizeof(arr1[0]);

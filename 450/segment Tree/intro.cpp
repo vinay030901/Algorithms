@@ -1,39 +1,77 @@
-/*
-
-the node (l,r) keep the the result from l to r
-
-we have (l,mid) and (mid+1,r), that is the data is divided with middle
-
-*/
 #include <bits/stdc++.h>
 using namespace std;
-int arr[]={1,2,-3};
-int n=3;
-int tree[12];
-void build(int ind, int l, int r)
+ 
+// limit for array size
+const int N = 100000;
+ 
+int n; // array size
+ 
+// Max size of tree
+int tree[4 * N];
+ 
+// function to build the tree
+void build( int arr[])
 {
-    if (l == r)
+    // insert leaf nodes in tree
+    for (int i=0; i<n; i++)   
+        tree[n+i] = arr[i];
+     
+    // build the tree by calculating parents
+    for (int i = n - 1; i > 0; --i)    
+        tree[i] = tree[i<<1] + tree[i<<1 | 1];   
+}
+ 
+// function to update a tree node
+void updateTreeNode(int p, int value)
+{
+    // set value at position p
+    tree[p+n] = value;
+    p = p+n;
+     
+    // move upward and update parents
+    for (int i=p; i > 1; i >>= 1)
+        tree[i>>1] = tree[i] + tree[i^1];
+}
+ 
+// function to get sum on interval [l, r)
+int query(int l, int r)
+{
+    int res = 0;
+     
+    // loop to find the sum in the range
+    for (l += n, r += n; l < r; l >>= 1, r >>= 1)
     {
-        tree[ind] = arr[l];
-        return ;
+        if (l&1)
+            res += tree[l++];
+        
+        if (r&1)
+            res += tree[--r];
     }
-    int mid = (l+r) / 2;
-    build(2 * ind, l, mid);
-    build(2 * ind + 1, mid + 1, r);
-    tree[ind]=min(tree[2*ind],tree[2*ind+1]);
+     
+    return res;
 }
-int calculateHeight(int n)
-{
-    n=log2(n);
-    n=(int)(ceil(n));
-    int k = n;
-    int h= (2 * (2 ^ k)) - 1;
-    return h;
-}
+ 
+// driver program to test the above function
 int main()
 {
-    //int h = calculateHeight(n);
-    build(0,0,2);
-    for (int i = 1; i < 12; i++)
-        cout << tree[i] << " ";
+    int a[] = {1,3,3,8,-7};
+ 
+    // n is global
+    n = sizeof(a)/sizeof(a[0]);
+     
+    // build tree
+    build(a);
+    for(int i=0;i<2*n;i++)
+    cout<<tree[i]<< " ";
+    cout<<"\n";
+    // print the sum in range(1,2) index-based
+    cout << query(1, 3)<<endl;
+     
+    // modify element at 2nd index
+    updateTreeNode(2, 1);
+     
+    // print the sum in range(1,2) index-based
+    cout << query(1, 3)<<endl;
+    cout<<"\n"<<(4<<1|1);
+    return 0;
 }

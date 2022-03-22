@@ -11,14 +11,14 @@ int main()
     for (int i = 0; i < n; i++)
     {
         int sum = 0;
-        for (j = i + 1; j < n; j++)
+        for (j = i; j < n; j++)
             sum += arr[j];
         mx = max(mx, sum);
     }
     cout << "using all permutations: " << mx << endl;
     // so we have kadane algo with us which can do this task in O(n) complexity
-    int currentSum = 0, max = arr[0];
-    for (int i = 1; i < n; i++)
+    int currentSum = 0, max = 0;
+    for (int i = 0; i < n; i++)
     {
         currentSum += arr[i];
         if (currentSum < 0)

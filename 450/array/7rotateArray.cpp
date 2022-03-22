@@ -14,7 +14,8 @@ int main()
     for (int i = k; i < n; i++, j++)
         arr1[j] = arr[i];
     for (int i = 0; i < k; i++)
-        arr1[j + i] = arr[i];
+        arr1
+            [j + i] = arr[i];
     cout << "using external array: ";
     for (int i = 0; i < n; i++)
         cout << arr1[i] << " ";
