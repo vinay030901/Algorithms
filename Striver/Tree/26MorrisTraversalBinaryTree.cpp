@@ -86,7 +86,7 @@ vector<int> getInorder(TreeNode *root)
     return inorder;
 }
 
-vector<int> getInorder(TreeNode *root)
+vector<int> getPreorder(TreeNode *root)
 {
     vector<int> preorder;
     if (root == NULL)

@@ -46,7 +46,10 @@ const ld EPS = 1e-9;
 
 void solve()
 {
-    
+    int x,y,d;
+    cin>>x>>y>>d;
+    if(x-y<=d) cout<<"YES\n";
+    else cout<<"NO\n";
 }
 
 int32_t main()

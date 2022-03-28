@@ -22,7 +22,6 @@ vector<int> breadthFirstSearch(int V, vector<int> adj[])
                     {
                         q.push(it);
                         vis[it] = 1;
-                        ;
                     }
                 }
             }

@@ -46,7 +46,15 @@ const ld EPS = 1e-9;
 
 void solve()
 {
-    
+    int t,cnt;
+    cin>>t;
+    fr(t)
+    {
+        int s,d;
+        cin>>s>>d;
+        if(s==d) cnt+=1;
+    }
+    cout<<cnt<<endl;
 }
 
 int32_t main()
@@ -55,7 +63,7 @@ int32_t main()
     cin.tie(0);
     cout.tie(0);
     int tc = 1;
-    cin >> tc;
+    //cin >> tc;
     for (int t = 1; t <= tc; t++)
     {
         // cout << "Case #" << t << ": ";

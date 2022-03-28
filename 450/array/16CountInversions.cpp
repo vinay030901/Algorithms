@@ -132,11 +132,14 @@ int main()
   // this process could be simply be done using the O(n^2) complexity
   // just traverse the array and check the number greater than it on the right side
   long long n = 4, count = 0;
-  long long arr[] = {4, 2, 8, 1};
+  long long arr[] = {3,2,1,0};
   for (long long i = 0; i < n - 1; i++)
     for (long long j = i + 1; j < n; j++)
       if (arr[i] > arr[j])
-        count++;
+        
+        {
+          count++;
+          cout<<i<<" "<<j<<endl;}
   cout << "count of inversion using simple method: " << count << endl;
 
   // to this process in NLogN, we can use merge sort and count the number of changes of happening

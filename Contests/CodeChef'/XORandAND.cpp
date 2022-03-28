@@ -46,7 +46,18 @@ const ld EPS = 1e-9;
 
 void solve()
 {
-    
+    int n;
+    cin>>n;
+    vector<int>v(n);
+    for(int i=0;i<n;i++) cin>>v[i];
+
+    int cnt=0;
+    for(int i=0;i<n;i++)
+    for(int j=i+1;j<n;j++)
+    {
+        cout<<"i:"<<i<<" j:"<<j<<" &: "<<(v[i]&v[j])<<" ^:"<<(v[i]^v[j])<<endl;
+    }
+    cout<<cnt<<endl;
 }
 
 int32_t main()

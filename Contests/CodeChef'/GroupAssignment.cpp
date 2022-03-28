@@ -46,7 +46,15 @@ const ld EPS = 1e-9;
 
 void solve()
 {
-    
+    int n,x;
+    cin>>n>>x;
+    vector<int>v(2*n+1);
+    for(int i=1,j=2*n;i<n;i++,j--)
+    {
+        if(i==x) cout<<j<<endl;
+        if(j==x) cout<<i<<endl;
+
+    }
 }
 
 int32_t main()

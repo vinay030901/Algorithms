@@ -28,7 +28,8 @@
         "map": "cpp",
         "bitset": "cpp",
         "cmath": "cpp",
-        "xiosbase": "cpp"
+        "xiosbase": "cpp",
+        "xlocinfo": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }
