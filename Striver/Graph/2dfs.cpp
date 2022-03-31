@@ -52,3 +52,27 @@ int main()
     for (int i = 0; i < d.size(); i++)
         cout << d[i] << " ";
 }
+
+vector<int>fundfs(int i,vector<int>adj[],vector<int>&vis,vector<int>&ans)
+{
+    vis[i]=1;
+    ans.push_back(i);
+    for(auto it:adj[i])
+    {
+        if(!vis[it])
+        fundfs()
+   }
+}
+vector<int> dfs(vector<int> adj[], int n)
+{
+    vector<int>vis(n+1,0);
+    vector<int>ans;
+    for(int i=1;i<=n;i++)
+    {
+        if(!vis[i])
+        {
+            fundfs(i,adj,vis,ans);
+        }
+    }
+    return ans;
+}

@@ -6,7 +6,7 @@ topological sort is for directed acyclic graph only*/
 #include <bits/stdc++.h>
 using namespace std;
 
-/* to find the topo sort, we traverse the graph and find its children
+/* to find the topo sort, we traverse the graph and find its adjacent nodes
 means, we go below in the graph and when the element has no other element to visit, we go back and put the element into the stack
 in this way, the child will go into stack first and therefore will be below in the stack
 so, afterthat, we will take out the element one by one and return vector*/

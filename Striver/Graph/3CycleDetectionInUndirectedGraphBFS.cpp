@@ -60,3 +60,36 @@ int main()
     else
         cout << "cycle is not present";
 }
+
+
+bool detectCycle(vector<int> adj[], int n)
+{
+    vector<int>vis(n+1,0);
+    for(int i=1;i<=n;i++)
+    {
+        if(!vis[i])
+        {
+            queue<pair<int,int>>q;
+            q.push({i,-1});
+            while(!q.empty())
+            {
+                int node=q.front().first,par=q.front().second;
+                vis[node]=1;
+                q.pop();
+                for(auto it:adj[node])
+                {
+                    if(!vis[i])
+                    {
+                        q.push({it,node});
+                        vis[it]=1;
+                    }
+                    else if(it!=par)
+                    {
+                        return true;
+                    }
+                }            
+            }
+        }
+    }
+    return false;
+}

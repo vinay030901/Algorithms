@@ -54,3 +54,58 @@ int main()
     for (int i = 0; i < b.size(); i++)
         cout << b[i] << " ";
 }
+
+vector<int> bfs(vector<int> adj[], int n)
+{
+    vector<int>vis(n+1,0);
+    queue<int>q;
+    vector<int>ans;
+    for(int i=0;i<n;i++)
+    {
+        if(!vis[i])
+        {
+            q.push(i);
+            vis[i]=1;
+            while(!q.empty())
+            {
+                int node=q.front();
+                q.pop();
+                ans.push_back(node);
+                for(auto it:adj[node])
+                {
+                    if(!vis[it])
+                    {
+                        q.push(it);
+                        vis[it]=1;
+                    }
+                }
+            }
+        }
+    }
+    return ans;
+}
+
+vector<int> bfs(vector<int> adj[], int n)
+{
+    vector<int> vis(n+1,-1);
+    vector<int> v;
+    queue<int> q;
+    for (int i = 0; i < n; i++) {
+        if (vis[i] != -1) {
+            q.push(i);
+            vis[i]=1;
+            while (!q.empty()) {
+                int node = q.front();
+                q.pop();
+                for (int it : adj[node]) {
+                    if (!vis[node]) {
+                        v.push_back(node);
+                        vis[it]=1;
+                        q.push(it);
+                    }
+                }
+            }
+        }
+    }
+    return v;
+}
