@@ -3,7 +3,7 @@ using namespace std;
 
 /*if the graph has exactly n nodes and n-1 edges, then it is called minimum spanning tree
 every node should be reachable via every other node
-there could be multiple spanning tree, but for minimum spanning tree: 
+there could be multiple spanning tree, but for minimum spanning tree:
 
 the minimum spanning tree is the one which has the minimum weights
 that is, after summing up the edges, the spanning tree which has the minimum cost of edges, it is called minimum spanning tree
@@ -17,32 +17,49 @@ that will work similarly, we will just check for the minimum edge weight of all 
 and the point when all the nodes are connected, we will stop and this would be our minimum spanning tree
 
 a condition could arise when the minimum edge will connect to already connected, that would create a cycle
-so we will take it and take the other minimum 
+so we will take it and take the other minimum
 
 now we will move into the implementation part
 */
 
-void findMinimumSpanningTree(vector<pair<int,int>>adj[],int n)
+void findMinimumSpanningTree(vector<pair<int, int>> adj[], int n)
 {
-    vector<int>key(n,INT_MAX);
-    vector<bool>mst(n,false);
-    vector<int>parent(n,-1);
+    vector<int> key(n, INT_MAX);
+    vector<bool> mst(n, false);
+    vector<int> parent(n, -1);
 
-    key[0]=0;
-    // first figure minimum value of index and that is not the part of mst, so the the start 
-    // the node at index 0 has the minimum possible key, and the moment we take the key value, we mark the mst as true
-    while(true)
+    // we will initialise key at 0 as 0 and parent of 0 as -1
+    key[0] = 0;
+    parent[0] = -1;
+    // our loop will run for n-1 times because we can only have n-1 vertices
+    //  so the the start the node at index 0 has the minimum possible key, and the moment we take the key value, we mark the mst as true
+    for (int cnt = 0; cnt < n - 1; cnt++)
     {
-        int mn=INT_MAX;
-        for(int i=0;i<key.size();i++)
-        if(key[i]<mn and mst[i]==false) mn=i;
-        mst[mn]=true;
-        for(auto it:adj[mn])
+        int mn = INT_MAX, pos;
+        // first figure minimum value of index and that is not the part of mst,
+        // we will store its value and the position at which it is minimum
+        for (int i = 0; i < key.size(); i++)
+            if (key[i] < mn and mst[i] == false)
+            {
+                mn = key[i];
+                pos = i;
+            }
+        mst[pos] = true; // we will make that true, that is, it is the part of our spanning tree
+
+        // then we traverse the adjacency matrix of that element and check for the smallest weights, if the weights are lower
+        // then we change the value in key and change the parent of the corresponding nodes
+        for (auto it : adj[pos])
         {
-            if(mst[i])
+            int node = it.first, wt = it.second;
+            if (mst[node] == false and wt < key[node])
+            {
+                key[node] = wt;
+                parent[node] = pos;
+            }
         }
     }
-
+    for(int i=1;i<n;i++)
+    cout<<parent[i]<<" "<<i<<"\n";
 }
 
 int main()

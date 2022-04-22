@@ -9,9 +9,10 @@ we have to relax the edges n-1 times, that means if dis[u]+wt<dis[v] -> dis[v]=d
 why n-1 times: the longest path we need to go from one point to another is n-1;
 */
 
-vector<int> bellmanFord(vector<vector<int>> adj, int n)
+vector<int> bellmanFord(vector<vector<int>> adj, int n,int src)
 {
     vector<int> dis(n + 1, INT_MAX);
+    dis[src]=0;
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < adj.size(); j++)
